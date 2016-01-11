@@ -6,6 +6,9 @@ gem 'devise'
 #haml
 gem 'haml', '~> 4.0', '>= 4.0.7'
 
+#simple_form
+gem 'simple_form', '~> 3.2', '>= 3.2.1'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # Use sqlite3 as the database for Active Record
@@ -38,6 +41,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  #need for debub
+  gem 'pry', '~> 0.10.3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
