@@ -6,6 +6,10 @@ gem 'devise'
 #haml
 gem 'haml', '~> 4.0', '>= 4.0.7'
 
+#Administratre gem: need for administration
+
+gem "administrate", "~> 0.1.2"
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # Use sqlite3 as the database for Active Record
