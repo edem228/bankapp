@@ -9,6 +9,8 @@ gem 'haml', '~> 4.0', '>= 4.0.7'
 #simple_form
 gem 'simple_form', '~> 3.2', '>= 3.2.1'
 
+gem 'rails_admin'
+
 #Administratre gem: need for administration
 gem "administrate", "~> 0.1.2"
 
