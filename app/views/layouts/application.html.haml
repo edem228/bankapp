@@ -1,0 +1,25 @@
+!!!
+%html
+  %head
+    %title CapSensHomework
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    %nav.navbar.navbar-default
+      .container
+        .navbar-brand=link_to "CapSensHomework", root_path
+        - if user_signed_in?
+          %ul.nav.navbar-nav.navbar-right
+            %li= link_to "Nouveau compte", edit_user_registration_path
+            %li= link_to "Edit user", edit_user_path(@user)
+            %li= link_to "Déconnexion", destroy_user_session_path, method: :delete
+        - else
+          %ul.nav.navbar-nav.navbar-right
+            %li= link_to "S'inscrire", new_user_registration_path
+            %li= link_to "Connexion", new_user_session_path
+
+    .container
+      %p.notice= notice
+      %p.alert= alert
+      = yield

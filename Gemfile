@@ -1,5 +1,10 @@
 source 'https://rubygems.org'
 
+#Need for user secure authenticate
+gem 'devise'
+
+#haml
+gem 'haml', '~> 4.0', '>= 4.0.7'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
