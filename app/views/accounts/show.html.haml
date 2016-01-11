@@ -1,3 +1,14 @@
-%h2 Votre compte
-%h3= @account.title
-%p= @account.login
+.row
+  .col-md-8.col-md-offset-2
+    .panel.panel-default.post_image
+      .panel-heading
+        %h2 Votre compte
+      .panel-body
+        %h3=@account.title
+        Identifiant:
+        %h3=@account.login
+      .panel-footer
+        .row
+          #transaction
+            = render "transactions/transactions"
+            = render "transactions/form"

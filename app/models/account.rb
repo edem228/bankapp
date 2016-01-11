@@ -1,5 +1,6 @@
 class Account < ActiveRecord::Base
   belongs_to  :user
+  has_many    :transactions, dependent: :destroy
   validates   :title, presence: true
   validates   :login, uniqueness: true
   validates   :login, presence: true, length: { is: 16 }

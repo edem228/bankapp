@@ -6,6 +6,10 @@ gem 'devise'
 #haml
 gem 'haml', '~> 4.0', '>= 4.0.7'
 
+#bootstrap
+
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
+
 #simple_form
 gem 'simple_form', '~> 3.2', '>= 3.2.1'
 
