@@ -1,15 +1,17 @@
 .col-md-12
-  %h3 Liste des transactions par compte de l'utilisateur
-- @account.transactions.each do |transaction|
+  %h3 Vos trois dernières transactions effectuées
+- @account.transactions.last(3).reverse.each do |transaction|
   .col-md-12
-    = transaction.id
     = transaction.title
     = transaction.amount
-    = transaction.outgoing
+    - if transaction.outgoing == true
+      %span.glyphicon.glyphicon-minus-sign
+    - else
+      %span.glyphicon.glyphicon-plus-sign
   - if transaction.user_id == current_user.id
     .col-md-12
       .btn-group.pull-right
         = link_to [transaction.account, transaction], method: :delete, data: {confirm: "La transaction sera définitivement Supprimée"} do
-          %span.glyphicon.glyphicon-trash Supprimer
+          %span.glyphicon.glyphicon-trash
     %br
   %hr

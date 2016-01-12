@@ -13,12 +13,13 @@ class Account < ActiveRecord::Base
     self.login = generate_login
   end
 
-  def self.logins
-    all.map{ |account| account.login }
-  end
+  # def self.logins
+  #   all.map{ |account| account.login }
+  # end
 
   def generate_login
     o = [('a'..'z'), ('A'..'Z')].map { |i| i.to_a }.flatten
     self.login = (0...16).map { o[rand(o.length)] }.join
   end
+
 end

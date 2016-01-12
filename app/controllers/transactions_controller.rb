@@ -1,6 +1,7 @@
 class TransactionsController < ApplicationController
   before_action :authenticate_user!
   before_action :transaction_owner, except: [:create]
+  before_action :is_admin?, only: [:create]
   def create
     @account = Account.find(params[:account_id])
     @transaction = @account.transactions.create(transaction_params)
@@ -9,7 +10,7 @@ class TransactionsController < ApplicationController
     if @transaction.save
       redirect_to account_path(@account), notice: "Votre transaction a été bien ajoutée"
     else
-      render "form"
+      render "transactions/form"
     end
   end
 
