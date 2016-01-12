@@ -11,4 +11,5 @@
         .row
           #transaction
             = render "transactions/transactions"
-            = render "transactions/form"
+            - if current_user.is_admin?
+              = render "transactions/form"

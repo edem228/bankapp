@@ -4,7 +4,8 @@ class AccountsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @accounts = Account.all
+    @user = current_user
+    @accounts = @user.accounts
   end
 
   def new
