@@ -22,4 +22,18 @@ class Account < ActiveRecord::Base
     self.login = (0...16).map { o[rand(o.length)] }.join
   end
 
+  def solde
+    outgoing = []
+    incomes = []
+    solde = 0
+    self.transactions.where(outgoing: true).each do |x|
+      outgoing << x.amount
+    end
+    self.transactions.where(outgoing: false).each do |y|
+      incomes << y.amount
+    end
+    incomes.inject(:+).to_i - outgoing.inject(:+).to_i
+    
+  end
+
 end
