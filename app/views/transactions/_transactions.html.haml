@@ -1,0 +1,25 @@
+.col-md-12
+  %h3 Vos trois dernières transactions effectuées
+  - if @account.transactions.count == 0
+    %p Vous n'avez aucune transaction sur ce compte
+  - else
+    - @account.transactions.last(3).reverse.each do |transaction|
+      .col-md-12
+        %b= transaction.title
+        .btn-group.pull-right
+          %i= time_ago_in_words(transaction.created_at)
+        %br
+        = transaction.amount
+        - if transaction.outgoing == true
+          %i - Transaction sortante
+          %span.glyphicon.glyphicon-minus-sign
+        - else
+          %i - Transaction entrante
+          %span.glyphicon.glyphicon-plus-sign
+      - if transaction.user_id == current_user.id
+        .col-md-12
+          .btn-group.pull-right
+            = link_to [transaction.account, transaction], method: :delete, data: {confirm: "La transaction sera définitivement Supprimée"} do
+              %span.glyphicon.glyphicon-trash
+        %br
+      %hr

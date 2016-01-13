@@ -1,0 +1,22 @@
+%h3 Tous les comptes bancaires
+- @accounts.each do |account|
+  - if account.present?
+    %h3= link_to account.title, account_path(account)
+    %h4= account.login
+    %br
+    %b
+      Vous avez 
+      = account.solde
+      sur ce compte
+    %h4 Les transactions de ce compte
+    %i 
+      = account.transactions.count
+      transaction(s) effectuée(s)
+    - account.transactions.last(3).reverse.each do |transa|
+      %li
+        %b= transa.title
+        %i= time_ago_in_words(transa.created_at)
+    %hr
+    %br
+  - else
+    %p Vous n'avez aucun compte bancaire pour le moment

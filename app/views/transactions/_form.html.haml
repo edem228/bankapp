@@ -1,0 +1,11 @@
+= simple_form_for([@account, @account.transactions.build]) do |f|
+  .col-md-12
+    =f.input :title, label: "Libellé"
+    =f.input :amount, label: "Montant"
+    .btn-group.pull-left
+      = f.label :Sortant
+      = f.radio_button :outgoing, "1"
+      = f.label :Entrant
+      = f.radio_button :outgoing, "0"
+    .btn-group.pull-right
+      =f.submit "Effectuer la transaction"

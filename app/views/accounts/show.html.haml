@@ -1,0 +1,18 @@
+.row
+  .col-md-8.col-md-offset-2
+    .panel.panel-default.post_image
+      .panel-heading
+        %h2 Votre compte
+      .panel-body
+        %h3=@account.title
+        Identifiant:
+        %h3=@account.login
+        %h4
+          Solde:
+          =@account.solde
+      .panel-footer
+        .row
+          #transaction
+            = render "transactions/transactions"
+            - if current_user.is_admin?
+              = render "transactions/form"

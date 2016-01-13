@@ -1,5 +1,22 @@
 source 'https://rubygems.org'
 
+#Need for user secure authenticate
+gem 'devise'
+
+#haml
+gem 'haml', '~> 4.0', '>= 4.0.7'
+
+#bootstrap
+
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
+
+#simple_form
+gem 'simple_form', '~> 3.2', '>= 3.2.1'
+
+gem 'rails_admin'
+
+#Administratre gem: need for administration
+gem "administrate", "~> 0.1.2"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
@@ -33,6 +50,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  #need for debub
+  gem 'pry', '~> 0.10.3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
