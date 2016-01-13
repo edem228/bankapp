@@ -2,10 +2,15 @@ class AccountsController < ApplicationController
 
   before_action :find_account, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :account_owner?, only: [:show]
 
   def index
     @user = current_user
-    @accounts = @user.accounts
+    if @user.is_admin?
+      @accounts = Account.all
+    else
+      @accounts = @user.accounts
+    end
   end
 
   def new
@@ -46,6 +51,12 @@ class AccountsController < ApplicationController
 
   def find_account
     @account = Account.find(params[:id])
+  end
+
+  def account_owner?
+    if current_user.id != @account.user_id && !current_user.is_admin?
+      redirect_to root_path, notice: "Action interdite !"
+    end
   end
 
   def account_params
